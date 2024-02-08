@@ -9,11 +9,16 @@ import UIKit
  `HeartRateViewController` below is a view controller that will present the heart rate information to the user. Throughout the exercises below you'll use the delegate pattern to pass information from an instance of `HeartRateReceiver` to the view controller so that anytime new information is obtained it is presented to the user.
  */
 
+protocol HeartRateReceiverDelegate {
+    func heartRateUpdated(to bpm: Int)
+}
 class HeartRateReceiver {
+    var delegate: HeartRateReceiverDelegate?
     var currentHR: Int? {
         didSet {
             if let currentHR = currentHR {
                 print("The most recent heart rate reading is \(currentHR).")
+                delegate?.heartRateUpdated(to: currentHR)
             } else {
                 print("Looks like we can't pick up a heart rate.")
             }
@@ -32,7 +37,22 @@ class HeartRateReceiver {
 class HeartRateViewController: UIViewController {
     var heartRateLabel: UILabel = UILabel()
 }
+
+extension HeartRateViewController: HeartRateReceiverDelegate {
+    func heartRateUpdated(to bpm: Int) {
+        heartRateLabel.text = "The user has been shown a heart rate of \(bpm)"
+        print(heartRateLabel.text!)
+    }
+    
+    
+}
 //:  First, create an instance of `HeartRateReceiver` and call `startHeartRateMonitoringExample`. Notice that every two seconds `currentHR` get set and prints the new heart rate reading to the console.
+let heartRateReceiver = HeartRateReceiver()
+let heartRateReceiverViewController = HeartRateViewController()
+heartRateReceiver.delegate = heartRateReceiverViewController
+heartRateReceiver.startHeartRateMonitoringExample()
+
+
 
 
 /*:
