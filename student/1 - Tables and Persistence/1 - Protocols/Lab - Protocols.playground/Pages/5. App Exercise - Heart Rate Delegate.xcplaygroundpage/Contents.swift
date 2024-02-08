@@ -12,6 +12,7 @@ import UIKit
 protocol HeartRateReceiverDelegate {
     func heartRateUpdated(to bpm: Int)
 }
+
 class HeartRateReceiver {
     var delegate: HeartRateReceiverDelegate?
     var currentHR: Int? {
