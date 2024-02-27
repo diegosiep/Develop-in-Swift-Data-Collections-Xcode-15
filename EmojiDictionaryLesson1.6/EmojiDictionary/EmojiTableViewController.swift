@@ -10,12 +10,28 @@ import UIKit
 
 class EmojiTableViewController: UITableViewController {
     
-    var emojis = Emoji.defaultData
+    var emojis: [Emoji] {
+        get {
+            Emoji.loadFromFile()
+        }
+        set {
+            Emoji.saveToFile(emojis: newValue)
+        }
+    }
+    
     let addEmojiBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"))
     var addEditEmojiTableViewController: AddEditEmojiTableViewController?
     var emojisBySection = [Section: [Emoji]]() {
         willSet {
             emojisSections = [Section](newValue.keys).sorted()
+            emojis = newValue.reduce(into: [Emoji]()) { partialResult, emojisBySection in
+                let emojis: [Emoji]
+                emojis = emojisBySection.value
+                
+                for emoji in emojis {
+                    partialResult.append(emoji)
+                }
+            }
         }
     }
     
@@ -104,7 +120,7 @@ class EmojiTableViewController: UITableViewController {
         }
     }
     
-   
+    
     
 }
 

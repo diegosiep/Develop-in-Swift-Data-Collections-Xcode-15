@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct Emoji: Comparable {
-   
+struct Emoji: Comparable, Codable {
     
     var symbol: String
     var name: String
@@ -16,7 +15,7 @@ struct Emoji: Comparable {
     var usage: String
     var section: Section
     
-    static let defaultData = [
+    static let sampleEmojis = [
         Emoji(symbol: "😃", name: "Grinning Face", description: "A typical smiley face.", usage: "happiness", section: .smileysAndPeople),
         Emoji (symbol: "😕", name: "Confused Face", description: "A confused, puzzled face.", usage: "unsure what to think; displeasure", section: .smileysAndPeople),
         Emoji (symbol: "😍", name: "Heart Eyes", description: "A smiley face with hearts for eyes.", usage: "love of something; attractive", section: .smileysAndPeople),
@@ -37,7 +36,33 @@ struct Emoji: Comparable {
     }
 }
 
-enum Section: String, CaseIterable, Comparable {
+// MARK: - Persistence functionality to Emoji struct.
+extension Emoji {
+    static var archiveURL: URL {
+        if #available(iOS 16.0, *) {
+            return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(path: "emojis").appendingPathExtension("plist")
+        } else {
+            // Fallback on earlier versions
+            return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("emojis").appendingPathExtension("plist")
+        }
+    }
+  
+    static func saveToFile(emojis: [Emoji]) {
+        let propertyListEncoder = PropertyListEncoder()
+        let encodedEmojis = try? propertyListEncoder.encode(emojis)
+        try? encodedEmojis?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+   static func loadFromFile() -> [Emoji] {
+       let propertyListDecoder = PropertyListDecoder()
+       guard let retrievedEmojis = try? Data(contentsOf: archiveURL), let decodedEmojis = try? propertyListDecoder.decode([Emoji].self, from: retrievedEmojis) else { return sampleEmojis }
+       
+       return decodedEmojis
+        
+    }
+}
+
+enum Section: String, CaseIterable, Comparable, Codable {
     case smileysAndPeople = "Smileys & People"
     case activity = "Activity"
     case animalsAndNature = "Animals & Nature"

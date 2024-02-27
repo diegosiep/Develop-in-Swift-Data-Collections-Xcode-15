@@ -57,15 +57,16 @@ let emojisBySection = emojis.reduce(into: [Section: [Emoji]]()) { partialResult,
     partialResult[section, default: [].sorted()].append(emoji)
 }
 
+let emojisOnlyArray = [[Emoji]](emojisBySection.values)
 
-let emojisSections = [Section](emojisBySection.keys).sorted()
+let emojisOnly = emojisBySection.reduce(into: [Emoji]()) { partialResult, emojisBySection in
+    let emojis: [Emoji]
+    emojis = emojisBySection.value
+    
+    for emoji in emojis {
+        partialResult.append(emoji)
+    }
+}
 
-emojisSections[0].rawValue
+print(emojisOnly)
 
-let indexPath = IndexPath(row: 0, section: 0)
-let emojiSectionToDeuqe = emojisSections[indexPath.section]
-let emojiToDeque = emojisBySection[emojiSectionToDeuqe]?[indexPath.row]
-
-
-let emojiSection = emojisSections[0]
-let emojisInSection = emojisBySection[emojiSection] ?? []
