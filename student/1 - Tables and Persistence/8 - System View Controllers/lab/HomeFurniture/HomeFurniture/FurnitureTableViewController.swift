@@ -2,9 +2,13 @@
 import UIKit
 
 class FurnitureTableViewController: UITableViewController {
-
+    
     struct PropertyKeys {
         static let furnitureCell = "FurnitureCell"
+    }
+    
+    override func viewDidLoad() {
+        setupTableView()
     }
     
     var rooms: [Room] = [
@@ -59,14 +63,22 @@ class FurnitureTableViewController: UITableViewController {
         }
     }
     
-    @IBSegueAction func showFurnitureDetail(_ coder: NSCoder, sender: Any?) -> FurnitureDetailViewController? {
-        guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
-            return nil
-        }
-        
-        let selectedRoom = rooms[indexPath.section]
-        let selectedFurniture = selectedRoom.furniture[indexPath.row]
-        
-        return FurnitureDetailViewController(coder: coder, furniture: selectedFurniture)
-    }    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRoomFurniture = rooms[indexPath.section].furniture[indexPath.row]
+        let furnitureDetailViewController = FurnitureDetailViewController(furniture: selectedRoomFurniture)
+        navigationController?.pushViewController(furnitureDetailViewController, animated: true)
+    }
+}
+
+extension FurnitureTableViewController {
+    func setupTableView() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: PropertyKeys.furnitureCell)
+        title = "Home Furniture"
+    }
+}
+
+@available (iOS 17, *)
+#Preview {
+    UINavigationController(rootViewController:  FurnitureTableViewController())
+   
 }

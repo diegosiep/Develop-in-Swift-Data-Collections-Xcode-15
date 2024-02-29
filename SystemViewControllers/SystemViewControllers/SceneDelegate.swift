@@ -1,29 +1,35 @@
+//
+//  SceneDelegate.swift
+//  SystemViewControllers
+//
+//  Created by Diego Sierra on 27/02/24.
+//
 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    
-    var furnitureTableViewController: FurnitureTableViewController?
+    var viewController: ViewController?
+   
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            furnitureTableViewController = FurnitureTableViewController()
-            guard let furnitureTableViewController = furnitureTableViewController else { return }
-            let navController = UINavigationController(rootViewController: furnitureTableViewController)
-            window.rootViewController = navController
+            viewController = ViewController()
+            viewController?.view.backgroundColor = .systemBackground
+            guard let viewController = viewController else { return }
+            window.rootViewController = viewController
             self.window = window
             window.makeKeyAndVisible()
             
         }
     }
-    
+
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
