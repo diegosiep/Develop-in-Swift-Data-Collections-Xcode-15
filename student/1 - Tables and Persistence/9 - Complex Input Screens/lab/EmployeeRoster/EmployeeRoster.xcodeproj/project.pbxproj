@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		18DE986223C405060071ACD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE986123C405060071ACD3 /* AppDelegate.swift */; };
 		18DE986423C405060071ACD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE986323C405060071ACD3 /* SceneDelegate.swift */; };
-		18DE986923C405060071ACD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DE986723C405060071ACD3 /* Main.storyboard */; };
 		18DE986B23C405070071ACD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DE986A23C405070071ACD3 /* Assets.xcassets */; };
 		18DE986E23C405070071ACD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DE986C23C405070071ACD3 /* LaunchScreen.storyboard */; };
 		18DE987623C405490071ACD3 /* EmployeeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE987523C405490071ACD3 /* EmployeeListTableViewController.swift */; };
 		18DE987823C405550071ACD3 /* EmployeeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE987723C405540071ACD3 /* EmployeeDetailTableViewController.swift */; };
 		18DE987A23C406260071ACD3 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE987923C406260071ACD3 /* Employee.swift */; };
+		C4CCE15F2BABA0AC00A1FE02 /* EmployeeTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCE15E2BABA0AC00A1FE02 /* EmployeeTypeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18DE985E23C405060071ACD3 /* EmployeeRoster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeRoster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DE986123C405060071ACD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DE986323C405060071ACD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		18DE986823C405060071ACD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18DE986A23C405070071ACD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18DE986D23C405070071ACD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18DE986F23C405070071ACD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18DE987523C405490071ACD3 /* EmployeeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListTableViewController.swift; sourceTree = "<group>"; };
 		18DE987723C405540071ACD3 /* EmployeeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailTableViewController.swift; sourceTree = "<group>"; };
 		18DE987923C406260071ACD3 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		C4CCE15E2BABA0AC00A1FE02 /* EmployeeTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTypeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +60,41 @@
 		18DE986023C405060071ACD3 /* EmployeeRoster */ = {
 			isa = PBXGroup;
 			children = (
-				18DE986F23C405070071ACD3 /* Info.plist */,
 				18DE986123C405060071ACD3 /* AppDelegate.swift */,
-				18DE987923C406260071ACD3 /* Employee.swift */,
-				18DE987723C405540071ACD3 /* EmployeeDetailTableViewController.swift */,
-				18DE987523C405490071ACD3 /* EmployeeListTableViewController.swift */,
 				18DE986323C405060071ACD3 /* SceneDelegate.swift */,
-				18DE986A23C405070071ACD3 /* Assets.xcassets */,
-				18DE986C23C405070071ACD3 /* LaunchScreen.storyboard */,
-				18DE986723C405060071ACD3 /* Main.storyboard */,
+				C4B1564A2BA91A93000DF4CE /* Model */,
+				C4B1564B2BA91AA4000DF4CE /* ViewControllers */,
+				C4B1564C2BA91AD7000DF4CE /* Files */,
 			);
 			path = EmployeeRoster;
+			sourceTree = "<group>";
+		};
+		C4B1564A2BA91A93000DF4CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18DE987923C406260071ACD3 /* Employee.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C4B1564B2BA91AA4000DF4CE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				18DE987723C405540071ACD3 /* EmployeeDetailTableViewController.swift */,
+				18DE987523C405490071ACD3 /* EmployeeListTableViewController.swift */,
+				C4CCE15E2BABA0AC00A1FE02 /* EmployeeTypeTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4B1564C2BA91AD7000DF4CE /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				18DE986A23C405070071ACD3 /* Assets.xcassets */,
+				18DE986C23C405070071ACD3 /* LaunchScreen.storyboard */,
+				18DE986F23C405070071ACD3 /* Info.plist */,
+			);
+			name = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +157,6 @@
 			files = (
 				18DE986E23C405070071ACD3 /* LaunchScreen.storyboard in Resources */,
 				18DE986B23C405070071ACD3 /* Assets.xcassets in Resources */,
-				18DE986923C405060071ACD3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DE987823C405550071ACD3 /* EmployeeDetailTableViewController.swift in Sources */,
+				C4CCE15F2BABA0AC00A1FE02 /* EmployeeTypeTableViewController.swift in Sources */,
 				18DE986223C405060071ACD3 /* AppDelegate.swift in Sources */,
 				18DE986423C405060071ACD3 /* SceneDelegate.swift in Sources */,
 				18DE987A23C406260071ACD3 /* Employee.swift in Sources */,
@@ -155,14 +179,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		18DE986723C405060071ACD3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18DE986823C405060071ACD3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		18DE986C23C405070071ACD3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -299,7 +315,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7YYU53MN3;
 				INFOPLIST_FILE = EmployeeRoster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,7 +334,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7YYU53MN3;
 				INFOPLIST_FILE = EmployeeRoster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

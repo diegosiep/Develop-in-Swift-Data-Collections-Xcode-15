@@ -1,27 +1,25 @@
+//
+//  SceneDelegate.swift
+//  Hotel Codable
+//
+//  Created by Diego Sierra on 29/02/24.
+//
 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    /* Remember to:
-     1. Delete Main.storyboard file.
-     2. Cmd + Shift + F to look for INFOPLIST_KEY_UIMainStoryboardFile = Main, click on it and inside of the file look for UIKit Main Storyboard File Base Name and hit 'Delete'.
-     3. Go to Info.plist and delete 'Storyboard Name'.
-     4. Insert this code in 'SceneDelegate'.
-     
-     */
-    
     var window: UIWindow?
-    
-    var employeeListTableViewController: EmployeeListTableViewController?
+
+    var registrationTableViewController: RegistrationTableViewController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            employeeListTableViewController = EmployeeListTableViewController()
-            guard let employeeListTableViewController = employeeListTableViewController else { return }
-            let navControllerEmployeeListTableViewController = UINavigationController(rootViewController: employeeListTableViewController)
-            window.rootViewController = navControllerEmployeeListTableViewController
+            registrationTableViewController = RegistrationTableViewController(style: .grouped)
+            guard let registrationTableViewController = registrationTableViewController else { return }
+            let navigationController = UINavigationController(rootViewController: registrationTableViewController)
+            window.rootViewController = navigationController
             self.window = window
             window.makeKeyAndVisible()
             
@@ -32,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

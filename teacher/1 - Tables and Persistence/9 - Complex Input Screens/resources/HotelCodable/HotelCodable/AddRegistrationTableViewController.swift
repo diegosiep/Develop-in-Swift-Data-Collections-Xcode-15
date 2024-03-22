@@ -235,3 +235,5 @@ class AddRegistrationTableViewController: UITableViewController, SelectRoomTypeT
         updateChargesSection()
     }
 }
+
+
