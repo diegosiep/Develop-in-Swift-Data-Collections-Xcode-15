@@ -43,5 +43,3 @@ Task {
 }
 
 // 'Parse' means in programming, to convert information represented in one form into another form that's easier to work with. You take some data type and transform it into another data type.
-
-
