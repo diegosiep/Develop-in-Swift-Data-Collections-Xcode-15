@@ -18,14 +18,14 @@
 
 /* Begin PBXFileReference section */
 		C43056172BD485C400142C57 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		C4404F2C2BD45247000FA69F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C44D082B2BCC567800C2BAEA /* SpacePhotoDataCollections15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpacePhotoDataCollections15.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44D082B2BCC567800C2BAEA /* SpacePhotoDataCollections15AdvancedProgressView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpacePhotoDataCollections15AdvancedProgressView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D082E2BCC567800C2BAEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44D08302BCC567800C2BAEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C44D08322BCC567800C2BAEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewControllers/ViewController.swift; sourceTree = "<group>"; };
 		C44D08372BCC567900C2BAEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C44D083A2BCC567900C2BAEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C44D08452BCC585100C2BAEA /* SpacePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacePhoto.swift; sourceTree = "<group>"; };
+		C4EEA0F52BD594310068871B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 		C44D08222BCC567800C2BAEA = {
 			isa = PBXGroup;
 			children = (
-				C44D082D2BCC567800C2BAEA /* SpacePhotoDataCollections15 */,
+				C44D082D2BCC567800C2BAEA /* SpacePhotoDataCollections15AdvancedProgressView */,
 				C44D082C2BCC567800C2BAEA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,23 +58,22 @@
 		C44D082C2BCC567800C2BAEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C44D082B2BCC567800C2BAEA /* SpacePhotoDataCollections15.app */,
+				C44D082B2BCC567800C2BAEA /* SpacePhotoDataCollections15AdvancedProgressView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C44D082D2BCC567800C2BAEA /* SpacePhotoDataCollections15 */ = {
+		C44D082D2BCC567800C2BAEA /* SpacePhotoDataCollections15AdvancedProgressView */ = {
 			isa = PBXGroup;
 			children = (
+				C4EEA0F52BD594310068871B /* Info.plist */,
 				C44D082E2BCC567800C2BAEA /* AppDelegate.swift */,
 				C44D08302BCC567800C2BAEA /* SceneDelegate.swift */,
-				C4404F2C2BD45247000FA69F /* Info.plist */,
 				C44D08422BCC570100C2BAEA /* Models */,
 				C44D08432BCC570900C2BAEA /* ViewControllers */,
 				C43056162BD485AC00142C57 /* Utils */,
 				C44D08442BCC571500C2BAEA /* Files */,
 			);
-			name = SpacePhotoDataCollections15;
 			path = SpacePhotoDataCollections15AdvancedProgressView;
 			sourceTree = "<group>";
 		};
@@ -106,9 +105,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C44D082A2BCC567800C2BAEA /* SpacePhotoDataCollections15 */ = {
+		C44D082A2BCC567800C2BAEA /* SpacePhotoDataCollections15AdvancedProgressView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C44D083F2BCC567900C2BAEA /* Build configuration list for PBXNativeTarget "SpacePhotoDataCollections15" */;
+			buildConfigurationList = C44D083F2BCC567900C2BAEA /* Build configuration list for PBXNativeTarget "SpacePhotoDataCollections15AdvancedProgressView" */;
 			buildPhases = (
 				C44D08272BCC567800C2BAEA /* Sources */,
 				C44D08282BCC567800C2BAEA /* Frameworks */,
@@ -118,9 +117,9 @@
 			);
 			dependencies = (
 			);
-			name = SpacePhotoDataCollections15;
+			name = SpacePhotoDataCollections15AdvancedProgressView;
 			productName = SpacePhoto;
-			productReference = C44D082B2BCC567800C2BAEA /* SpacePhotoDataCollections15.app */;
+			productReference = C44D082B2BCC567800C2BAEA /* SpacePhotoDataCollections15AdvancedProgressView.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -151,7 +150,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C44D082A2BCC567800C2BAEA /* SpacePhotoDataCollections15 */,
+				C44D082A2BCC567800C2BAEA /* SpacePhotoDataCollections15AdvancedProgressView */,
 			);
 		};
 /* End PBXProject section */
@@ -247,6 +246,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -304,6 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -323,6 +324,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U7YYU53MN3;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpacePhotoDataCollections15AdvancedProgressView/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -333,7 +335,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.diegosierra.SpacePhotoDataCollections15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diegosierra.SpacePhotoDataCollections15AdvancedProgressView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -350,6 +352,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U7YYU53MN3;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpacePhotoDataCollections15AdvancedProgressView/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -360,7 +363,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.diegosierra.SpacePhotoDataCollections15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diegosierra.SpacePhotoDataCollections15AdvancedProgressView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -380,7 +383,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C44D083F2BCC567900C2BAEA /* Build configuration list for PBXNativeTarget "SpacePhotoDataCollections15" */ = {
+		C44D083F2BCC567900C2BAEA /* Build configuration list for PBXNativeTarget "SpacePhotoDataCollections15AdvancedProgressView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C44D08402BCC567900C2BAEA /* Debug */,

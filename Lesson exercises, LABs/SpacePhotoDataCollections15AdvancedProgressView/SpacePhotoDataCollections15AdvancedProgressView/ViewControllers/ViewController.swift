@@ -15,14 +15,21 @@ class ViewController: UIViewController {
     var descriptionLabel: UILabel!
     var copyrightLabel: UILabel!
     var progressView: UIProgressView!
-    
     var photoInfo: SpacePhoto?
     
     var receivedData: Data?
     
+    lazy var session: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        configuration.waitsForConnectivity = true
+        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+    }()
+    
+    var downloadPhotoInfoTask: URLSessionDownloadTask? = nil
+    var downloadPhotoInfoImageTask: URLSessionDownloadTask? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         style()
         layout()
     }
@@ -31,19 +38,23 @@ class ViewController: UIViewController {
 // MARK: - General methods
 
 extension ViewController {
-    private func updateUI() {
-        Task {
-            do {
-                try await fetchPhotoInfo()
-                self.title = photoInfo?.title
-                self.copyrightLabel.text = photoInfo?.copyright
-                self.descriptionLabel.text = photoInfo?.description
-            } catch {
-                updateUI(error)
-            }
-        }
-    }
+  
     
+    func updateUI(with spacePhoto: SpacePhoto) {
+        self.descriptionLabel.text = photoInfo?.description
+        self.copyrightLabel.text = photoInfo?.copyright
+        self.title = photoInfo?.title
+        switch spacePhoto.mediaType {
+        case MediaType.image.rawValue:
+            self.fetchPhotoImage(with: spacePhoto.url)
+        case MediaType.video.rawValue:
+            fetchPhotoInfoVideoInfo(with: spacePhoto.thumbnailUrl ?? URL(string: "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg")!)
+        default:
+            self.imageView.image = UIImage(systemName: "exclamationmark.triangle")
+            
+        }
+        
+    }
     
     func updateUI(_ error: Error) {
         self.title = "Error Fetching Photo"
@@ -52,28 +63,7 @@ extension ViewController {
         self.imageView.image = UIImage(systemName: "exclamationmark.triangle")
         progressView.isHidden = true
     }
-    
-    //    private func checkIfAPODIsImageOrVideo() async throws {
-    //        guard let photoInfo = self.photoInfo else { return }
-    //
-    //        if photoInfo.mediaType == MediaType.video.rawValue {
-    //            await UIApplication.shared.open(self.photoInfo!.url)
-    //            self.title = photoInfo.title
-    //            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.fill"), style: .plain, target: self, action: #selector(openAPODURL))
-    //            self.descriptionLabel.text = "Check out the APOD video! " + photoInfo.description
-    //            self.copyrightLabel.text = photoInfo.copyright
-    //            self.imageView.image = UIImage(systemName: "arrow.up.right.video")
-    //            progressView.isHidden = true
-    //        } else if photoInfo.mediaType == MediaType.image.rawValue {
-    //            let image = try photoInfoController.fetchPhotoImage(with: photoInfo.url)
-    //            self.title = photoInfo.title
-    //            self.descriptionLabel.text = photoInfo.description
-    //            self.copyrightLabel.text = photoInfo.copyright
-    //            self.imageView.image = image
-    //            progressView.isHidden = true
-    //        }
-    //    }
-    
+
     @objc func openAPODURL() {
         UIApplication.shared.open(photoInfo!.url)
     }
@@ -112,12 +102,12 @@ extension ViewController {
         copyrightLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(copyrightLabel)
         
-        progressView = UIProgressView(progressViewStyle: .bar)
+        progressView = UIProgressView(progressViewStyle: .default)
         progressView.translatesAutoresizingMaskIntoConstraints = false
-        progressView.setProgress(1.0, animated: true)
+        progressView.isHidden = false
         imageView.addSubview(progressView)
         
-        updateUI()
+        fetchPhotoInfo()
         
     }
     
@@ -138,8 +128,8 @@ extension ViewController {
             
             progressView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             progressView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            progressView.widthAnchor.constraint(equalTo: imageView
-                .widthAnchor)
+            progressView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
             
         ])
     }
