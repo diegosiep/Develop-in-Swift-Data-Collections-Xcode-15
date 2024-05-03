@@ -247,9 +247,7 @@ extension StoreItemListTableViewController: UISearchBarDelegate {
                 case .denied:
                     self.searchBar.setImage(UIImage(systemName: "mic.slash"), for: .bookmark, state: [])
                     let alertDeniedPermission = UIAlertController(title: "Speech Recognition denied", message: "You have denied permission to allow dictation. To change speech recording permission preferences, go to Settings and allow voice recording for this app.", preferredStyle: .alert)
-                    let dismissAction = UIAlertAction(title: "OK", style: .default) { _ in
-                        alertDeniedPermission.dismiss(animated: true)
-                    }
+                    let dismissAction = UIAlertAction(title: "OK", style: .default) 
                     alertDeniedPermission.addAction(dismissAction)
                     self.present(alertDeniedPermission, animated: true)
                 case .restricted:
